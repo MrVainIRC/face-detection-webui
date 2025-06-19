@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome Camera</title>
+    <meta charset="utf-8">
+</head>
+<body>
+    <h1>Live Camera</h1>
+    <img src="{{ url_for('video') }}" width="640"><br><br>
+
+    <form action="/capture" method="post">
+        <label for="name">Person's name:</label>
+        <input type="text" id="name" name="name" required>
+        <button type="submit">Save Photo</button>
+    </form>
+
+    <hr>
+
+    <h2>Settings</h2>
+    <form action="/settings" method="post">
+        <label for="width">Frame width:</label>
+        <input type="number" name="width" value="{{ width }}"><br>
+
+        <label for="height">Frame height:</label>
+        <input type="number" name="height" value="{{ height }}"><br>
+
+        <label for="interval">Detection interval (every Nth frame):</label>
+        <input type="number" name="interval" value="{{ interval }}"><br>
+
+        <button type="submit">Apply Settings</button>
+    </form>
+</body>
+</html>
